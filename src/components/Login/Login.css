@@ -1,0 +1,97 @@
+/* Container for the Login form */
+.loginParentDiv {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 400px;
+  width: 90%;
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Logo styling */
+.loginParentDiv img {
+  width: 150px;
+  margin-bottom: 1.5rem;
+}
+
+/* Label styling */
+.loginParentDiv label {
+  width: 100%;
+  font-size: 14px;
+  font-weight: 600;
+  color: #002f34;
+  margin-bottom: 0.5rem;
+}
+
+/* Input field styling */
+.loginParentDiv .input {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.loginParentDiv .input:focus {
+  outline: none;
+  border-color: #002f34;
+}
+
+/* Button styling */
+.loginParentDiv button {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #002f34;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border 0.3s ease;
+  margin-top: 0.5rem;
+}
+
+.loginParentDiv button:hover {
+  background-color: #ffffff;
+  color: #002f34;
+  border: 2px solid #002f34;
+}
+
+/* Link styling */
+.loginParentDiv a {
+  display: block;
+  text-align: center;
+  width: 100%;
+  font-size: 14px;
+  font-weight: 600;
+  color: #002f34;
+  margin-top: 1rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.loginParentDiv a:hover {
+  color: #007782;
+}
+
+/* Error message styling */
+.error {
+  font-size: 0.875rem;
+  color: #d9534f;
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  text-align: left;
+}
