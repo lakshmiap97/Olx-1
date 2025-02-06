@@ -6,9 +6,10 @@ import Search from "../../assets/Search";
 import Arrow from "../../assets/Arrow";
 import SellButton from "../../assets/SellButton";
 import SellButtonPlus from "../../assets/SellButtonPlus";
-import { AuthContext, FirebaseContext } from "../../store/Context";
+import { AuthContext } from "../../store/Context";
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebase/config";
+import { toast } from "react-toastify";
 
 function Header() {
   const { user } = useContext(AuthContext);
@@ -16,6 +17,7 @@ function Header() {
 
   function logOut() {
     signOut(auth);
+    toast.success("Logout Successfully")
     navigate("/login");
   }
   return (

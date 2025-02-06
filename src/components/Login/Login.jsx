@@ -46,7 +46,8 @@ function Login() {
       return
     }
     try {
-      await signInWithEmailAndPassword(auth,email,password)
+      await signInWithEmailAndPassword(auth,email,password);
+      toast.success("Login Successfully")
       navigate('/')
     } catch (error) {
       toast.error(error.code.split('/')[1].split('-').join(' '))

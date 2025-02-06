@@ -8,19 +8,20 @@ import { useContext, useEffect } from 'react';
 import {AuthContext} from './store/Context'
 import {getAuth,onAuthStateChanged} from 'firebase/auth'
 import Post from './store/PostContext'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function ProtectedRoute({children}){
   const {user} = useContext(AuthContext);
   return user ? children : <Navigate to="/login"/>
 }
 
-
 function App() {
   const {setUser} =useContext(AuthContext)
 
   useEffect(()=>{
     const auth = getAuth();//is a firebase fun for getting authrntication services 
-    const unsubscribe = onAuthStateChanged(auth,(user)=>{ //is alistener fun which monitors chages to the user auth changes 
+    const unsubscribe = onAuthStateChanged(auth,(user)=>{ //is a listener fun which monitors chages to the user auth changes 
       setUser(user);
     })
     return ()=>unsubscribe();
@@ -28,6 +29,7 @@ function App() {
   return (
     <Post>
     <Router>
+      <ToastContainer/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path='/signup' element={<Signup />}/> 
