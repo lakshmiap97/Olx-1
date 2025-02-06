@@ -5,7 +5,7 @@ import Login from './pages/Login'
 import Create from './pages/Create'
 import View from './pages/Viewpost'
 import { useContext, useEffect } from 'react';
-import {AuthContext, FirebaseContext} from './store/Context'
+import {AuthContext} from './store/Context'
 import {getAuth,onAuthStateChanged} from 'firebase/auth'
 import Post from './store/PostContext'
 
@@ -19,9 +19,8 @@ function App() {
   const {setUser} =useContext(AuthContext)
 
   useEffect(()=>{
-    const auth = getAuth();
-
-    const unsubscribe = onAuthStateChanged(auth,(user)=>{
+    const auth = getAuth();//is a firebase fun for getting authrntication services 
+    const unsubscribe = onAuthStateChanged(auth,(user)=>{ //is alistener fun which monitors chages to the user auth changes 
       setUser(user);
     })
     return ()=>unsubscribe();

@@ -9,7 +9,6 @@ import {toast} from 'react-toastify'
 function Login() {
   const [email,setEmail] = useState("")
   const [password,setPassword] = useState("")
-  const {firebase} = useContext(FirebaseContext)
   const[errors,setErrors] = useState({})
   const navigate = useNavigate()
 
