@@ -5,6 +5,7 @@ import { db } from "../../firebase/config";
 import { doc, setDoc, serverTimestamp } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../store/Context";
+import {toast} from 'react-toastify'
 
 const Create = () => {
 const {user} = useContext(AuthContext)
@@ -52,7 +53,7 @@ const {user} = useContext(AuthContext)
     console.log("Submitting form");
 
     if (!image) {
-      alert("Please upload an image.");
+      toast.error("Please upload an image.");
       return;
     }
 
@@ -61,7 +62,7 @@ const {user} = useContext(AuthContext)
       const imageUrl = await uploadImageToCloudinary();
       console.log("Image URL:", imageUrl);
       if (!imageUrl) {
-        alert("Image upload failed. Please try again.");
+        toast.error("Image upload failed. Please try again.");
         setIsSubmitting(false); 
         return;
       }
@@ -75,7 +76,7 @@ const {user} = useContext(AuthContext)
         userId:user.uid,
         createdAt: serverTimestamp(),
       });
-      alert("Product added successfully");
+      toast.success("Product added successfully");
       navigate("/");
     } catch (error) {
       console.error("Error adding product:", error);
