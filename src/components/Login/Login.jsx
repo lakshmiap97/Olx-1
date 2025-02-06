@@ -69,7 +69,6 @@ function Login() {
             name="email"
             value={email}
             onChange={(e)=>setEmail(e.target.value)}
-            defaultValue="John"
           />
           <br />
           <label htmlFor="lname">Password</label>
@@ -81,7 +80,6 @@ function Login() {
             value={password}
             onChange={(e)=>setPassword(e.target.value)}
             name="password"
-            defaultValue="Doe"
           />
           <br />
           <br />

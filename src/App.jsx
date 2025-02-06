@@ -1,15 +1,17 @@
 import { BrowserRouter as Router, Routes, Route,Navigate } from 'react-router-dom';
 import Home from './pages/Home';
-import Signup from './pages/Signup';
-import Login from './pages/Login'
-import Create from './pages/Create'
-import View from './pages/Viewpost'
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect,lazy,Suspense } from 'react';
 import {AuthContext} from './store/Context'
 import {getAuth,onAuthStateChanged} from 'firebase/auth'
 import Post from './store/PostContext'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Loader from './components/Loader/loader'
+
+const Login = lazy(()=>import("./pages/Login"))
+const Create = lazy(()=>import("./pages/Create"))
+const View = lazy(()=>import("./pages/Viewpost"))
+const Signup = lazy(()=>import("./pages/Signup"))
 
 function ProtectedRoute({children}){
   const {user} = useContext(AuthContext);
@@ -30,6 +32,7 @@ function App() {
     <Post>
     <Router>
       <ToastContainer/>
+      <Suspense fallback={<Loader/>}>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path='/signup' element={<Signup />}/> 
@@ -37,6 +40,7 @@ function App() {
         <Route path='/sell' element={<ProtectedRoute><Create /></ProtectedRoute>}/> 
         <Route path='/view' element={<ProtectedRoute><View /></ProtectedRoute>}/>
       </Routes>
+      </Suspense>
     </Router>
     </Post>
   );
