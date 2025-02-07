@@ -85,7 +85,7 @@ function Login() {
           <br />
           <button>Login</button>
         </form>
-        <a>Signup</a>
+        <a style={{cursor:'pointer'}} onClick={()=>navigate('/signup')}>Signup</a>
       </div>
     </div>
   );

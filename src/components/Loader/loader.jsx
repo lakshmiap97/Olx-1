@@ -2,6 +2,7 @@ import React from 'react';
 import './loader.css'; 
 
 const Loader = () => {
+  console.log("loading")
   return (
     <div className="loader-container">
       <div className="loader-spinner" />
