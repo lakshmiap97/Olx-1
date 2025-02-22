@@ -30,7 +30,9 @@ const {user} = useContext(AuthContext)
 
     try {
       const response = await fetch(
-        `https://api.cloudinary.com/v1_1/dw8cqu5ls/image/upload`,
+       
+        `https://api.cloudinary.com/v1_1/dbvgudgjw/image/upload`,
+        
         {
           method: "POST",
           body: formData,
